@@ -46,8 +46,8 @@ interface BottomNavProps {
 
 export default function BottomNav({ active, onChange }: BottomNavProps) {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white dark:bg-stone-900 border-t border-stone-200 dark:border-stone-700 flex z-50"
-      style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+    <nav className="fixed left-0 right-0 bg-white dark:bg-stone-900 border-t border-stone-200 dark:border-stone-700 flex z-50"
+      style={{ bottom: 0, paddingBottom: 'var(--safe-bottom)' }}>
       {tabs.map((tab) => {
         const isActive = active === tab.id
         return (

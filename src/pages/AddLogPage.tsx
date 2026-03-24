@@ -125,7 +125,7 @@ export default function AddLogPage({ editId, onSaved, onBack }: AddLogPageProps)
   )
 
   return (
-    <div className="flex-1 overflow-auto pb-24">
+    <div className="flex-1 overflow-auto pb-24 scroll-container">
       <div className="px-4 pt-4 pb-2 flex items-center gap-2">
         {onBack && (
           <button onClick={onBack} className="text-coffee-600 dark:text-coffee-400 -ml-1">
@@ -139,15 +139,15 @@ export default function AddLogPage({ editId, onSaved, onBack }: AddLogPageProps)
         </h1>
       </div>
 
-      <div className="px-4 space-y-3">
+      <div className="px-4 space-y-3 min-w-0 overflow-hidden">
         {/* Date */}
-        <div>
+        <div className="min-w-0">
           <label className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-1">日期</label>
           <input
             type="date"
             value={form.date}
             onChange={(e) => set('date', e.target.value)}
-            className="w-full px-3 py-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:ring-2 focus:ring-coffee-500 outline-none"
+            className="w-full max-w-full px-3 py-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:ring-2 focus:ring-coffee-500 outline-none box-border"
           />
         </div>
 
@@ -163,13 +163,13 @@ export default function AddLogPage({ editId, onSaved, onBack }: AddLogPageProps)
         {/* Roast Info */}
         <FormSection title="烘焙信息" icon={roastIcon} defaultOpen={true}>
           <ChipSelect label="烘焙度" options={ROAST_LEVEL_OPTIONS} value={form.roastLevel} onChange={(v) => set('roastLevel', v)} />
-          <div>
+          <div className="min-w-0">
             <label className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-1">烘焙日期</label>
             <input
               type="date"
               value={form.roastDate}
               onChange={(e) => set('roastDate', e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:ring-2 focus:ring-coffee-500 outline-none"
+              className="w-full max-w-full px-3 py-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:ring-2 focus:ring-coffee-500 outline-none box-border"
             />
           </div>
         </FormSection>

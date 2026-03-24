@@ -37,7 +37,7 @@ export default function LogDetailPage({ log, onBack, onEdit, onDelete }: LogDeta
   const dimensions = Object.entries(FLAVOR_DIMENSION_LABELS) as [string, string][]
 
   return (
-    <div className="flex-1 overflow-auto pb-24">
+    <div className="flex-1 overflow-auto pb-24 scroll-container">
       {/* Header */}
       <div className="sticky top-0 z-10 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md border-b border-stone-100 dark:border-stone-800">
         <div className="flex items-center px-4 py-3">

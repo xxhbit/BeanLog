@@ -59,7 +59,7 @@ export default function EditableMultiChipSelect({ category, defaultOptions, valu
           <button
             type="button"
             onClick={() => setEditing(!editing)}
-            className="text-xs text-coffee-500 dark:text-coffee-400"
+            className="text-sm text-coffee-500 dark:text-coffee-400"
           >
             {editing ? '完成' : '编辑'}
           </button>

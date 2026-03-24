@@ -52,7 +52,7 @@ export default function RecordsPage({ onEdit }: RecordsPageProps) {
   }
 
   return (
-    <div className="flex-1 overflow-auto pb-24">
+    <div className="flex-1 overflow-auto pb-24 scroll-container">
       <div className="px-4 pt-4 pb-2">
         <h1 className="text-xl font-bold text-stone-800 dark:text-stone-100">咖啡记录</h1>
         <p className="text-sm text-stone-500 dark:text-stone-400 mt-0.5">

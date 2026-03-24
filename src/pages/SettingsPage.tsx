@@ -46,7 +46,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="flex-1 overflow-auto pb-24">
+    <div className="flex-1 overflow-auto pb-24 scroll-container">
       <div className="px-4 pt-4 pb-2">
         <h1 className="text-xl font-bold text-stone-800 dark:text-stone-100">设置</h1>
       </div>
