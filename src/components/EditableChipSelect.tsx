@@ -61,7 +61,7 @@ export default function EditableChipSelect({ category, defaultOptions, value, on
             <button
               type="button"
               onClick={() => !editing && onChange(value === opt ? '' : opt)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 value === opt
                   ? 'bg-coffee-600 text-white shadow-sm dark:bg-coffee-500'
                   : 'bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-400'

@@ -73,7 +73,7 @@ export default function EditableMultiChipSelect({ category, defaultOptions, valu
               <button
                 type="button"
                 onClick={() => !editing && toggle(opt)}
-                className={`px-2.5 py-1 rounded-full text-xs font-medium transition-all ${
+                className={`px-3.5 py-1.5 rounded-full text-sm font-medium transition-all ${
                   selected
                     ? 'bg-coffee-600 text-white shadow-sm dark:bg-coffee-500'
                     : 'bg-stone-100 text-stone-500 dark:bg-stone-800 dark:text-stone-400'
@@ -85,9 +85,9 @@ export default function EditableMultiChipSelect({ category, defaultOptions, valu
                 <button
                   type="button"
                   onClick={() => handleRemove(opt)}
-                  className="absolute -top-1 -right-1 w-[14px] h-[14px] bg-stone-200 dark:bg-stone-600 rounded-full flex items-center justify-center"
+                  className="absolute -top-1 -right-1 w-[18px] h-[18px] bg-stone-200 dark:bg-stone-600 rounded-full flex items-center justify-center"
                 >
-                  <svg viewBox="0 0 12 12" className="w-2 h-2 text-stone-500 dark:text-stone-300" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round">
+                  <svg viewBox="0 0 12 12" className="w-2.5 h-2.5 text-stone-500 dark:text-stone-300" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round">
                     <path d="M3 3l6 6M9 3l-6 6" />
                   </svg>
                 </button>

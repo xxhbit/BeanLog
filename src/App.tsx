@@ -21,10 +21,8 @@ export default function App() {
   }
 
   const handleSaved = () => {
-    if (editId) {
-      setEditId(null)
-      setTab('records')
-    }
+    setEditId(null)
+    setTab('records')
   }
 
   return (
