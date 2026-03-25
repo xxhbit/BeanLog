@@ -32,9 +32,8 @@ export default function AddLogPage({ editId, onSaved, onBack }: AddLogPageProps)
   const [toast, setToast] = useState('')
 
   const existing = useBrewLog(editId ?? undefined)
-  const lastLog = useLastLogForBean(form.beanName)
+  const lastLog = useLastLogForBean(form.variety)
 
-  const recentBeanNames = useRecentValues('beanName')
   const recentOrigins = useRecentValues('origin')
   const recentRoasters = useRecentValues('roaster')
   const recentVarieties = useRecentValues('variety')
@@ -151,13 +150,12 @@ export default function AddLogPage({ editId, onSaved, onBack }: AddLogPageProps)
           />
         </div>
 
-        {/* Bean Info -- roaster first, then beanName */}
+        {/* Bean Info -- roaster and variety first */}
         <FormSection title="咖啡豆信息" icon={beanIcon} defaultOpen={true}>
           <AutoSuggestInput label="烘焙商" value={form.roaster} onChange={(v) => set('roaster', v)} suggestions={recentRoasters} />
-          <AutoSuggestInput label="豆名" value={form.beanName} onChange={(v) => set('beanName', v)} suggestions={recentBeanNames} />
+          <AutoSuggestInput label="豆种" value={form.variety} onChange={(v) => set('variety', v)} suggestions={[...new Set([...recentVarieties, ...VARIETY_OPTIONS])]} />
           <AutoSuggestInput label="产地" value={form.origin} onChange={(v) => set('origin', v)} suggestions={[...new Set([...recentOrigins, ...ORIGIN_OPTIONS])]} />
           <EditableChipSelect label="处理法" category="process" defaultOptions={DEFAULT_PROCESS_OPTIONS} value={form.process} onChange={(v) => set('process', v)} />
-          <AutoSuggestInput label="品种" value={form.variety} onChange={(v) => set('variety', v)} suggestions={[...new Set([...recentVarieties, ...VARIETY_OPTIONS])]} />
         </FormSection>
 
         {/* Roast Info */}

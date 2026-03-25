@@ -19,9 +19,9 @@ export default function LogDetailPage({ log, onBack, onEdit, onDelete }: LogDeta
 
   const infoRows: [string, string | number | null][] = [
     ['烘焙商', log.roaster],
+    ['豆种', log.variety],
     ['产地', log.origin],
     ['处理法', log.process],
-    ['品种', log.variety],
     ['烘焙度', log.roastLevel],
     ['烘焙日期', log.roastDate ? new Date(log.roastDate).toLocaleDateString('zh-CN') : null],
     ['冲煮滤杯', log.method],
@@ -47,7 +47,7 @@ export default function LogDetailPage({ log, onBack, onEdit, onDelete }: LogDeta
             </svg>
           </button>
           <h1 className="text-lg font-bold text-stone-800 dark:text-stone-100 flex-1 truncate">
-            {log.beanName || '未命名咖啡豆'}
+            {[log.roaster, log.variety].filter(Boolean).join(' · ') || '未命名咖啡豆'}
           </h1>
           <button onClick={onEdit} className="ml-2 flex items-center gap-1 px-3 py-1.5 rounded-lg bg-coffee-50 dark:bg-coffee-900/30 text-coffee-700 dark:text-coffee-300 text-sm font-medium active:bg-coffee-100 dark:active:bg-coffee-900/50 transition-colors">
             <svg viewBox="0 0 16 16" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">

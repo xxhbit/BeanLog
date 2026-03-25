@@ -15,17 +15,15 @@ export const DEFAULT_BREW_TECHNIQUE_OPTIONS = [
 ]
 
 export const VARIETY_OPTIONS = [
-  'Typica', 'Bourbon', 'Gesha/瑰夏', 'SL28', 'SL34',
-  'Caturra', 'Catuai', 'Pacamara', 'Maragogipe',
-  'Catimor', 'Castillo', 'Pink Bourbon', 'Sidra',
-  'Ethiopian Heirloom', 'Java', 'Mundo Novo',
+  '铁皮卡', '波旁', '瑰夏', 'SL28', 'SL34', 'SL09',
+  '卡杜拉', '卡杜艾', '帕卡马拉', '粉波旁', '埃塞原生种', 
+  '爪哇', '改良铁皮卡'
 ]
 
 export const ORIGIN_OPTIONS = [
-  '埃塞俄比亚', '肯尼亚', '哥伦比亚', '巴西', '危地马拉',
-  '哥斯达黎加', '巴拿马', '洪都拉斯', '秘鲁', '印度尼西亚',
-  '云南', '也门', '卢旺达', '布隆迪', '坦桑尼亚',
-  '墨西哥', '牙买加', '夏威夷',
+  '埃塞俄比亚', '肯尼亚', '哥伦比亚', '危地马拉',
+  '哥斯达黎加', '巴拿马', '洪都拉斯', '秘鲁', '云南', 
+  '厄瓜多尔', '卢旺达', '布隆迪', '坦桑尼亚',
 ]
 
 export const DEFAULT_FLAVOR_TAGS = [

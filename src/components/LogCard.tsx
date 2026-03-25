@@ -23,11 +23,8 @@ export default function LogCard({ log, onClick, onEdit }: LogCardProps) {
         <div className="flex justify-between items-start">
           <div className="flex-1 min-w-0">
             <h3 className="font-semibold text-stone-800 dark:text-stone-100 truncate">
-              {log.beanName || '未命名咖啡豆'}
+              {[log.roaster, log.variety].filter(Boolean).join(' · ') || '未命名咖啡豆'}
             </h3>
-            {log.roaster && (
-              <p className="text-xs text-coffee-600 dark:text-coffee-400 mt-0.5 truncate">{log.roaster}</p>
-            )}
             <div className="flex items-center gap-2 mt-1 text-xs text-stone-500 dark:text-stone-400">
               {dateStr && <span>{dateStr}</span>}
               {brewInfo && (

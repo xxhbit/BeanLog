@@ -11,11 +11,10 @@ interface RecordsPageProps {
 function matchesSearch(log: BrewLog, query: string): boolean {
   const q = query.toLowerCase()
   return [
-    log.beanName,
     log.roaster,
+    log.variety,
     log.origin,
     log.process,
-    log.variety,
     log.method,
     log.brewTechnique,
     log.roastLevel,

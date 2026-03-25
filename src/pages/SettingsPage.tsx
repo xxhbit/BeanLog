@@ -94,7 +94,7 @@ export default function SettingsPage() {
                 <thead>
                   <tr className="bg-stone-50 dark:bg-stone-700/50">
                     <th className="px-3 py-2 text-left text-stone-500">日期</th>
-                    <th className="px-3 py-2 text-left text-stone-500">豆名</th>
+                    <th className="px-3 py-2 text-left text-stone-500">豆种</th>
                     <th className="px-3 py-2 text-left text-stone-500">方式</th>
                   </tr>
                 </thead>
@@ -102,7 +102,7 @@ export default function SettingsPage() {
                   {preview.slice(0, 10).map((row, i) => (
                     <tr key={i} className="border-t border-stone-50 dark:border-stone-700/50">
                       <td className="px-3 py-2 text-stone-600 dark:text-stone-300">{row.date}</td>
-                      <td className="px-3 py-2 text-stone-600 dark:text-stone-300">{row.beanName}</td>
+                      <td className="px-3 py-2 text-stone-600 dark:text-stone-300">{[row.roaster, row.variety].filter(Boolean).join(' · ')}</td>
                       <td className="px-3 py-2 text-stone-600 dark:text-stone-300">{row.method}</td>
                     </tr>
                   ))}

@@ -39,33 +39,26 @@ export default function AutoSuggestInput({
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const hasSuggestions = filtered.length > 0
+  useEffect(() => {
+    if (!open) return
+    const scroller = wrapperRef.current?.closest('.scroll-container')
+    if (!scroller) return
+    const onScroll = () => setOpen(false)
+    scroller.addEventListener('scroll', onScroll, { passive: true })
+    return () => scroller.removeEventListener('scroll', onScroll)
+  }, [open])
 
   return (
     <div ref={wrapperRef} className="relative">
       {label && <label className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-1">{label}</label>}
-      <div className="relative">
-        <input
-          type={type}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          onFocus={() => setOpen(true)}
-          placeholder={placeholder}
-          className={`w-full px-3 py-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:ring-2 focus:ring-coffee-500 focus:border-transparent outline-none ${hasSuggestions ? 'pr-8' : ''}`}
-        />
-        {hasSuggestions && (
-          <button
-            type="button"
-            onMouseDown={(e) => e.preventDefault()}
-            onClick={() => setOpen(!open)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center text-stone-400 dark:text-stone-500"
-          >
-            <svg viewBox="0 0 12 12" className={`w-3 h-3 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
-              <path d="M2 4l4 4 4-4" />
-            </svg>
-          </button>
-        )}
-      </div>
+      <input
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onFocus={() => setOpen(true)}
+        placeholder={placeholder}
+        className="w-full px-3 py-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-sm focus:ring-2 focus:ring-coffee-500 focus:border-transparent outline-none"
+      />
       {open && filtered.length > 0 && (
         <div className="absolute z-50 mt-1 w-full max-h-40 overflow-auto bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-lg shadow-lg">
           {filtered.map((item) => (

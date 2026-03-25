@@ -34,17 +34,17 @@ export function useRecentValues(field: keyof BrewLog, limit = 20) {
   }, [field, limit]) ?? []
 }
 
-export function useLastLogForBean(beanName: string) {
+export function useLastLogForBean(variety: string) {
   return useLiveQuery(async () => {
-    if (!beanName) return undefined
+    if (!variety) return undefined
     const logs = await db.brewLogs
       .orderBy('createdAt')
       .reverse()
-      .filter((l) => l.beanName === beanName)
+      .filter((l) => l.variety === variety)
       .limit(1)
       .toArray()
     return logs[0]
-  }, [beanName])
+  }, [variety])
 }
 
 export function useCustomTags(category: string) {
